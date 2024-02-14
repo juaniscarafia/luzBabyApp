@@ -1,0 +1,112 @@
+paths:
+  /api/babyweight:
+    get:
+      tags:
+        - Baby Weight
+      summary: List of Weight
+      parameters:
+        - name: startdate
+          in: query
+          description: Fecha inicio
+          required: false
+          explode: true
+          schema:
+            type: integer
+        - name: enddate
+          in: query
+          description: Fecha fin
+          required: false
+          explode: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: <b><h1> List of Baby Weight </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    post:
+      tags:
+        - Baby Weight
+      summary: Inserta Baby Weight
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                weight:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Baby Weight </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+  /api/babyweight/{id}:
+    put:
+      tags:
+        - Baby Weight
+      summary: Update Baby Weight
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                weight:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Baby Weight </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    delete:
+      tags:
+        - Baby Weight
+      summary: Delete Baby Weight
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: <b><h1> Baby Weight </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:

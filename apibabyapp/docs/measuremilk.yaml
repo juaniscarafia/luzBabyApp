@@ -1,0 +1,124 @@
+paths:
+  /api/measureMilks:
+    get:
+      tags:
+        - Measure Milk
+      summary: List of Measure Milks
+      parameters:
+        - name: pageSize
+          in: query
+          description: Cantidad de registros
+          required: false
+          explode: true
+          schema:
+            type: integer
+        - name: pageNumber
+          in: query
+          description: Número de pagina
+          required: false
+          explode: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: <b><h1> List of Measure Milks </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    post:
+      tags:
+        - Measure Milk
+      summary: Inserta Measure Milk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                time:
+                  required: true
+                  type: string
+                measure:
+                  required: true
+                  type: integer
+                idmilk:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Measure Milks </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+  /api/measureMilks/{id}:
+    put:
+      tags:
+        - Measure Milk
+      summary: Update Measure Milk
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                time:
+                  required: true
+                  type: string
+                measure:
+                  required: true
+                  type: integer
+                idmilk:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Measure Milks </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    delete:
+      tags:
+        - Measure Milk
+      summary: Delete Measure Milk
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: <b><h1> Measure Milks </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:

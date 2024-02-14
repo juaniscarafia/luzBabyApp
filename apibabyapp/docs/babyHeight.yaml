@@ -1,0 +1,112 @@
+paths:
+  /api/babyheight:
+    get:
+      tags:
+        - Baby Height
+      summary: List of Height
+      parameters:
+        - name: startdate
+          in: query
+          description: Fecha inicio
+          required: false
+          explode: true
+          schema:
+            type: integer
+        - name: enddate
+          in: query
+          description: Fecha fin
+          required: false
+          explode: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: <b><h1> List of Baby Height </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    post:
+      tags:
+        - Baby Height
+      summary: Inserta Baby Height
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                height:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Baby Height </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+  /api/babyheight/{id}:
+    put:
+      tags:
+        - Baby Height
+      summary: Update Baby Height
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  required: true
+                  type: string
+                height:
+                  required: true
+                  type: integer
+      responses:
+        200:
+          description: <b><h1> Baby Height </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
+    delete:
+      tags:
+        - Baby Height
+      summary: Delete Baby Height
+      parameters:
+        - name: id
+          in: path
+          description: Id
+          required: true
+          explode: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: <b><h1> Baby Height </h1></b>
+        422:
+          description: Parametros invalidos
+        500:
+          description: No se encontraron registros
+        default:
+          description:
